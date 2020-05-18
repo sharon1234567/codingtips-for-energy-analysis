@@ -1,0 +1,7 @@
+能耗通常是时间序列值，且常会出现缺失值，这时可以先生成完整的时间标签作为index，再与原数据进行合并，缺失的值就会被nan填补
+
+pandas.date_range(start=None, end=None, periods=None, freq='D', tz=None, normalize=False, name=None, closed=None, **kwargs)
+
+full_index = pd.date_range(start='2015-12-31 15:00:00', end='2018-12-31 23:00:00', freq='H')]
+
+df.reindex(full_index)  #注意reindex是将新的full_index与原来的index进行合并，重合的部分保留数据，full_index中有而index中没有的将用nan填补
